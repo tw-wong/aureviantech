@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Navbar from "@/components/Navbar";
 
 describe("Navbar", () => {
+  afterEach(() => {
+    document.body.classList.remove("overflow-hidden");
+  });
+
   // ── Existing: static content ──────────────────────────────────────────────
 
   it("renders the logo text", () => {
@@ -13,9 +17,10 @@ describe("Navbar", () => {
 
   it("renders desktop navigation links", () => {
     render(<Navbar />);
-    expect(screen.getByRole("link", { name: /home/i })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
-    expect(screen.getByRole("link", { name: /contact/i })).toHaveAttribute("href", "/contact");
+    const desktopNav = screen.getByRole("list");
+    expect(within(desktopNav).getByRole("link", { name: /home/i })).toHaveAttribute("href", "/");
+    expect(within(desktopNav).getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
+    expect(within(desktopNav).getByRole("link", { name: /contact/i })).toHaveAttribute("href", "/contact");
   });
 
   // ── Hamburger button ───────────────────────────────────────────────────────
@@ -81,10 +86,8 @@ describe("Navbar", () => {
     const user = userEvent.setup();
     render(<Navbar />);
     await user.click(screen.getByRole("button", { name: /open menu/i }));
-    // The drawer renders its own set of links; click one
-    const drawerLinks = screen.getAllByRole("link", { name: /home/i });
-    await user.click(drawerLinks[drawerLinks.length - 1]);
-    const drawer = document.getElementById("mobile-drawer");
+    const drawer = document.getElementById("mobile-drawer")!;
+    await user.click(within(drawer).getByRole("link", { name: /home/i }));
     expect(drawer).toHaveClass("translate-x-full");
   });
 
