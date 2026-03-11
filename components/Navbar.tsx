@@ -111,7 +111,7 @@ export default function Navbar() {
       <div
         id="mobile-drawer"
         aria-label="Navigation"
-        className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-[#1a3528] z-[60] transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-[#1a3528]/75 backdrop-blur-sm z-[60] transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
