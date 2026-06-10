@@ -14,7 +14,11 @@ export default function ScrollOnArrival() {
     sessionStorage.removeItem("scrollTo");
     requestAnimationFrame(() =>
       requestAnimationFrame(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth" });
+        // Reflect the section in the URL without triggering another jump.
+        window.history.replaceState(null, "", `#${id}`);
       })
     );
   }, []);
