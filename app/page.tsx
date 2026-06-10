@@ -84,7 +84,7 @@ export default function HomePage() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 600px"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="absolute -left-[18px] -bottom-[22px] bg-canvas rounded-lg px-5 py-4 shadow-float flex items-center gap-3.5 max-w-[260px]">
