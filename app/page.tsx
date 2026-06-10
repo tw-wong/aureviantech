@@ -60,7 +60,7 @@ export default function HomePage() {
             </p>
             <div className="flex gap-3 flex-wrap">
               <Link href="/contact"><Button iconRight={<ArrowRight size={18} strokeWidth={2.25} />}>Get Started</Button></Link>
-              <a href="#studio"><Button variant="tertiary">Learn More</Button></a>
+              <a href="#services"><Button variant="tertiary">Learn More</Button></a>
             </div>
             <div className="flex gap-12 mt-11 flex-wrap">
               {stats.map((s) => (

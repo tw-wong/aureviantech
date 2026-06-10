@@ -10,8 +10,8 @@ describe("HomePage in-page anchors", () => {
     expect(container.querySelector("#testimonials")).toBeInTheDocument();
   });
 
-  it("links the hero 'Learn More' to the studio section", () => {
+  it("links the hero 'Learn More' to the services section", () => {
     render(<HomePage />);
-    expect(screen.getByRole("link", { name: /learn more/i })).toHaveAttribute("href", "#studio");
+    expect(screen.getByRole("link", { name: /learn more/i })).toHaveAttribute("href", "#services");
   });
 });
