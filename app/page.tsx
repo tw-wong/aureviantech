@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Monitor, Smartphone, Cloud, Lightbulb, ArrowRight, Check,
   GitCommitHorizontal, Star, Image as ImageIcon, Users,
@@ -76,7 +77,16 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <ImagePlaceholder height={460} icon={<Users size={48} strokeWidth={1.25} />} label="Team / workspace" />
+            <div className="relative w-full h-[460px] overflow-hidden rounded-xl">
+              <Image
+                src="/hero.webp"
+                alt="Aurevian engineering across web, mobile and cloud infrastructure"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover"
+              />
+            </div>
             <div className="absolute -left-[18px] -bottom-[22px] bg-canvas rounded-lg px-5 py-4 shadow-float flex items-center gap-3.5 max-w-[260px]">
               <div className="w-11 h-11 shrink-0 flex items-center justify-center bg-primary text-on-primary rounded-md">
                 <GitCommitHorizontal size={22} strokeWidth={2} />
