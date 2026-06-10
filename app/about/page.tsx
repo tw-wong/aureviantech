@@ -62,7 +62,7 @@ export default function AboutPage() {
       {/* The team */}
       <section className="bg-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px]">
-          <SectionHeading align="center" maxWidth={560} eyebrow="The team" title="Senior in every discipline." lead="You work directly with senior engineers across web, mobile, infrastructure and product." className="mx-auto" />
+          <SectionHeading align="center" maxWidth={560} eyebrow="The team" title="One team, every discipline." lead="Direct access to the people who design, build and ship — across web, mobile, infrastructure and product." className="mx-auto" />
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
             {disciplines.map((d) => (
               <Card key={d.title} variant="content" padding="p-6" className="text-center h-full">
