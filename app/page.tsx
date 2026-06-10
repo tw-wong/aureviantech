@@ -199,6 +199,11 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
+          <div className="mt-10">
+            <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+              Start a project <ArrowRight size={17} strokeWidth={2.25} />
+            </Link>
+          </div>
         </div>
       </section>
 
