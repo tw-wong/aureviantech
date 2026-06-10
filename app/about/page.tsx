@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Gem, MessagesSquare, GitCommitHorizontal, Users } from "lucide-react";
+import { Gem, MessagesSquare, GitCommitHorizontal, Users, Code2, Smartphone, Server, Compass } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -12,11 +12,11 @@ const values = [
   { icon: <GitCommitHorizontal size={26} strokeWidth={2} />, title: "End-to-end ownership", desc: "We take responsibility from the first commit to production deployment." },
 ];
 
-const team = [
-  { name: "Arman Vasquez", role: "Principal Engineer" },
-  { name: "Lena Fischer", role: "Mobile Lead" },
-  { name: "Tomas Reyes", role: "Infrastructure Lead" },
-  { name: "Priya Nair", role: "Product Engineer" },
+const disciplines = [
+  { icon: <Code2 size={26} strokeWidth={1.75} />, title: "Engineering", desc: "Principal-level engineers leading architecture and delivery." },
+  { icon: <Smartphone size={26} strokeWidth={1.75} />, title: "Mobile", desc: "Native and cross-platform apps for iOS and Android." },
+  { icon: <Server size={26} strokeWidth={1.75} />, title: "Infrastructure", desc: "Cloud, DevOps and CI/CD for reliable, scalable systems." },
+  { icon: <Compass size={26} strokeWidth={1.75} />, title: "Product", desc: "Product engineering that keeps scope tight and outcomes clear." },
 ];
 
 const capabilities = ["React", "Next.js", "Node.js", "Go", "Python", "Swift", "Kotlin", "MongoDB", "AWS", "Serverless", "Terraform", "CI/CD"];
@@ -59,16 +59,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* The team */}
       <section className="bg-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px]">
-          <SectionHeading align="center" maxWidth={560} eyebrow="The people" title="Who you will work with." lead="No hand-offs to juniors — the people you meet are the people who build." className="mx-auto" />
+          <SectionHeading align="center" maxWidth={560} eyebrow="The team" title="Senior across the stack." lead="You work directly with senior engineers in every discipline — no hand-offs to juniors." className="mx-auto" />
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
-            {team.map((m) => (
-              <Card key={m.name} variant="content" padding="p-6" className="text-center h-full">
-                <ImagePlaceholder height={96} shape="circle" icon={<Users size={28} strokeWidth={1.5} />} className="!w-24 mx-auto mb-4" />
-                <div className="text-[17px] font-bold text-ink">{m.name}</div>
-                <div className="text-sm text-body mt-1">{m.role}</div>
+            {disciplines.map((d) => (
+              <Card key={d.title} variant="content" padding="p-6" className="text-center h-full">
+                <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-primary-pale text-ink-deep rounded-lg">
+                  {d.icon}
+                </div>
+                <div className="text-[17px] font-bold text-ink">{d.title}</div>
+                <div className="text-sm leading-5 text-body mt-1.5 text-pretty">{d.desc}</div>
               </Card>
             ))}
           </div>
