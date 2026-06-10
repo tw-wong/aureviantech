@@ -57,6 +57,15 @@ const config: Config = {
       transitionTimingFunction: {
         standard: "var(--ease-standard)",
       },
+      keyframes: {
+        "status-ping": {
+          "0%": { transform: "scale(1)", opacity: "0.55" },
+          "75%, 100%": { transform: "scale(2.4)", opacity: "0" },
+        },
+      },
+      animation: {
+        "status-ping": "status-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
     },
   },
   plugins: [],

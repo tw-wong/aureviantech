@@ -49,7 +49,10 @@ export default function HomePage() {
         <div className="max-w-container mx-auto px-6 pt-[72px] pb-20 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <span className="inline-flex items-center gap-2 bg-primary-pale text-positive-deep text-sm font-semibold px-3.5 py-[5px] rounded-pill mb-6">
-              <span className="w-2 h-2 rounded-full bg-positive" />
+              <span className="relative inline-flex w-2 h-2">
+                <span className="absolute inset-0 rounded-full bg-positive motion-safe:animate-status-ping" />
+                <span className="relative inline-flex w-2 h-2 rounded-full bg-positive" />
+              </span>
               Available for new projects
             </span>
             <h1 className="m-0 font-display font-extrabold leading-none tracking-[-1px] text-ink text-balance text-[clamp(40px,6vw,68px)]">
