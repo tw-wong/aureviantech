@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -127,6 +126,13 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            onClick={close}
+            className="mx-6 mt-6 inline-flex items-center justify-center bg-primary text-on-primary font-semibold px-4 py-2 rounded-lg"
+          >
+            Get in Touch
+          </Link>
         </div>
       </div>
     </header>

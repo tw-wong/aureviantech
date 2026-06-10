@@ -20,8 +20,11 @@ describe("Navbar", () => {
     const desktopNav = screen.getByRole("list");
     expect(within(desktopNav).getByRole("link", { name: /home/i })).toHaveAttribute("href", "/");
     expect(within(desktopNav).getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
-    expect(within(desktopNav).getByRole("link", { name: /contact/i })).toHaveAttribute("href", "/contact");
-    expect(screen.getByRole("link", { name: /get in touch/i })).toHaveAttribute("href", "/contact");
+    // Contact is no longer a separate nav link — the "Get in Touch" CTA covers it.
+    expect(within(desktopNav).queryByRole("link", { name: /contact/i })).not.toBeInTheDocument();
+    const ctas = screen.getAllByRole("link", { name: /get in touch/i });
+    expect(ctas.length).toBeGreaterThan(0);
+    ctas.forEach((cta) => expect(cta).toHaveAttribute("href", "/contact"));
   });
 
   // ── Hamburger button ───────────────────────────────────────────────────────
