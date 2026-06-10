@@ -93,15 +93,13 @@ export default function HomePage() {
           <SectionHeading align="center" maxWidth={620} eyebrow="What we do" title="The services we provide." lead="Everything you need to build, launch and scale your digital product — under one senior team." className="mx-auto" />
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
             {services.map((s) => (
-              <div key={s.title}>
-                <ServiceCard icon={s.icon} title={s.title} description={s.description} />
-                <div className="mt-3.5">
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-                    Start a project <ArrowRight size={17} strokeWidth={2.25} />
-                  </Link>
-                </div>
-              </div>
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} />
             ))}
+          </div>
+          <div className="mt-10">
+            <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+              Start a project <ArrowRight size={17} strokeWidth={2.25} />
+            </Link>
           </div>
         </div>
       </section>
