@@ -33,7 +33,7 @@ export default function AboutPage() {
             </p>
             <div className="flex gap-3 mt-[30px] flex-wrap">
               <Link href="/contact"><Button>Work with us</Button></Link>
-              <Link href="/"><Button variant="tertiary">Our services</Button></Link>
+              <Link href="/#services"><Button variant="tertiary">Our services</Button></Link>
             </div>
           </div>
           <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Team" />
