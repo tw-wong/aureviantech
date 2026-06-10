@@ -132,7 +132,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="mt-8">
-              <Link href="/contact"><Button>Start a project</Button></Link>
+              <Link href="/contact"><Button>Work with us</Button></Link>
             </div>
           </div>
         </div>
