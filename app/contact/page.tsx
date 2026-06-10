@@ -12,7 +12,7 @@ const details = [
 
 export default function ContactPage() {
   return (
-    <main className="bg-canvas-soft">
+    <div className="bg-canvas-soft">
       <div className="max-w-container mx-auto px-6 py-20 grid items-start gap-12 lg:grid-cols-[1fr_1.05fr]">
         {/* Info */}
         <div>
@@ -54,6 +54,6 @@ export default function ContactPage() {
           <ContactForm />
         </Card>
       </div>
-    </main>
+    </div>
   );
 }
