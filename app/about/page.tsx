@@ -19,7 +19,7 @@ const team = [
   { name: "Priya Nair", role: "Product Engineer" },
 ];
 
-const capabilities = ["React", "Next.js", "Node.js", "Go", "Python", "Swift", "Kotlin", "MongoDB", "AWS", "Terraform", "CI/CD"];
+const capabilities = ["React", "Next.js", "Node.js", "Go", "Python", "Swift", "Kotlin", "MongoDB", "AWS", "Serverless", "Terraform", "CI/CD"];
 
 export default function AboutPage() {
   return (
