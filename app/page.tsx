@@ -36,7 +36,7 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "12+", label: "Years shipping" },
+  { value: "10+", label: "Years shipping" },
   { value: "80+", label: "Products delivered" },
   { value: "24h", label: "Response time" },
 ];
@@ -146,7 +146,7 @@ export default function HomePage() {
           <div className="relative">
             <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Agency / team" />
             <div className="absolute -right-4 -top-4 bg-primary text-on-primary rounded-lg px-[22px] py-[18px] shadow-soft text-center">
-              <div className="font-display font-extrabold text-[26px] leading-none">12+</div>
+              <div className="font-display font-extrabold text-[26px] leading-none">10+</div>
               <div className="text-xs font-semibold mt-1">Years of<br />shipping</div>
             </div>
           </div>
