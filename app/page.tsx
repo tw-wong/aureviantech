@@ -166,7 +166,7 @@ export default function HomePage() {
               ))}
             </div>
             <Link href="/about" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-              Read More <ArrowRight size={17} strokeWidth={2.25} />
+              Meet the team <ArrowRight size={17} strokeWidth={2.25} />
             </Link>
           </div>
         </div>
