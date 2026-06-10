@@ -4,10 +4,10 @@ const columns = [
   {
     title: "Services",
     links: [
-      { label: "Web Development", href: "/contact" },
-      { label: "Mobile Apps", href: "/contact" },
-      { label: "Infrastructure", href: "/contact" },
-      { label: "Consultancy", href: "/contact" },
+      { label: "Web Development", href: "/#services" },
+      { label: "Mobile Apps", href: "/#services" },
+      { label: "Infrastructure", href: "/#services" },
+      { label: "Consultancy", href: "/#services" },
     ],
   },
   {

@@ -48,6 +48,16 @@
   --container-text: 768px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background-color: var(--color-canvas-soft);
   color: var(--color-ink);

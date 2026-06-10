@@ -18,4 +18,9 @@ describe("Footer", () => {
     render(<Footer />);
     expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
   });
+
+  it("links Services items to the Home services section", () => {
+    render(<Footer />);
+    expect(screen.getByRole("link", { name: /web development/i })).toHaveAttribute("href", "/#services");
+  });
 });

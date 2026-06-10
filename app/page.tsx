@@ -60,7 +60,7 @@ export default function HomePage() {
             </p>
             <div className="flex gap-3 flex-wrap">
               <Link href="/contact"><Button iconRight={<ArrowRight size={18} strokeWidth={2.25} />}>Get Started</Button></Link>
-              <Link href="/about"><Button variant="tertiary">Learn More</Button></Link>
+              <a href="#studio"><Button variant="tertiary">Learn More</Button></a>
             </div>
             <div className="flex gap-12 mt-11 flex-wrap">
               {stats.map((s) => (
@@ -88,7 +88,7 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="bg-canvas">
+      <section id="services" className="scroll-mt-24 bg-canvas">
         <div className="max-w-container mx-auto px-6 py-[88px]">
           <SectionHeading align="center" maxWidth={620} eyebrow="What we do" title="The services we provide." lead="Everything you need to build, launch and scale your digital product — under one senior team." className="mx-auto" />
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
@@ -107,7 +107,7 @@ export default function HomePage() {
       </section>
 
       {/* How we work */}
-      <section className="bg-ink text-canvas-soft">
+      <section id="how-we-work" className="scroll-mt-24 bg-ink text-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div className="order-2 lg:order-1">
             <ImagePlaceholder height={440} icon={<Monitor size={48} strokeWidth={1.25} />} label="Working / process" />
@@ -141,7 +141,7 @@ export default function HomePage() {
       </section>
 
       {/* About the studio */}
-      <section className="bg-canvas-soft">
+      <section id="studio" className="scroll-mt-24 bg-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-2">
           <div className="relative">
             <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Agency / team" />
@@ -173,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-canvas">
+      <section id="testimonials" className="scroll-mt-24 bg-canvas">
         <div className="max-w-container mx-auto px-6 py-[88px]">
           <SectionHeading align="center" maxWidth={560} eyebrow="Client stories" title="What our clients say." lead="A few words from the teams we have built with." className="mx-auto" />
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
