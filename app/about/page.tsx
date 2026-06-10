@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import ScrollLink from "@/components/ScrollLink";
 
 const values = [
   { icon: <Gem size={26} strokeWidth={2} />, title: "Quality over speed", desc: "We ship things that work and last — not things that need rewriting in six months." },
@@ -33,7 +34,7 @@ export default function AboutPage() {
             </p>
             <div className="flex gap-3 mt-[30px] flex-wrap">
               <Link href="/contact"><Button>Work with us</Button></Link>
-              <Link href="/#services"><Button variant="tertiary">Our services</Button></Link>
+              <ScrollLink targetId="services"><Button variant="tertiary">Our services</Button></ScrollLink>
             </div>
           </div>
           <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Team" />

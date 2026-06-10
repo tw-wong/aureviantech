@@ -9,6 +9,7 @@ import Card from "@/components/ui/Card";
 import ServiceCard from "@/components/ServiceCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import ScrollOnArrival from "@/components/ScrollOnArrival";
 
 const services = [
   { icon: <Monitor size={30} strokeWidth={1.5} />, title: "Web Development", description: "Full-stack web apps built with modern frameworks — from landing pages to complex SaaS products." },
@@ -46,6 +47,7 @@ const stats = [
 export default function HomePage() {
   return (
     <>
+      <ScrollOnArrival />
       {/* Hero */}
       <section className="bg-canvas-soft relative overflow-hidden">
         <div className="max-w-container mx-auto px-6 pt-[72px] pb-20 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
