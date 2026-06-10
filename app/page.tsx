@@ -97,7 +97,7 @@ export default function HomePage() {
                 <ServiceCard icon={s.icon} title={s.title} description={s.description} />
                 <div className="mt-3.5">
                   <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-                    Read More <ArrowRight size={17} strokeWidth={2.25} />
+                    Start a project <ArrowRight size={17} strokeWidth={2.25} />
                   </Link>
                 </div>
               </div>
