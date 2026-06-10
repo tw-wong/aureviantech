@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 
 const details = [
   { icon: <Clock size={20} strokeWidth={2} />, label: "Response time", value: "Within 24 hours" },
-  { icon: <MapPin size={20} strokeWidth={2} />, label: "Location", value: "Remote — GMT +8h" },
+  { icon: <MapPin size={20} strokeWidth={2} />, label: "Location", value: "Kuala Lumpur, Malaysia" },
 ];
 
 export default function ContactPage() {
