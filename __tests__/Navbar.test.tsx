@@ -15,12 +15,13 @@ describe("Navbar", () => {
     expect(screen.getByText(/tech solutions/i)).toBeInTheDocument();
   });
 
-  it("renders desktop navigation links", () => {
+  it("renders desktop navigation links and the CTA", () => {
     render(<Navbar />);
     const desktopNav = screen.getByRole("list");
     expect(within(desktopNav).getByRole("link", { name: /home/i })).toHaveAttribute("href", "/");
     expect(within(desktopNav).getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
     expect(within(desktopNav).getByRole("link", { name: /contact/i })).toHaveAttribute("href", "/contact");
+    expect(screen.getByRole("link", { name: /get in touch/i })).toHaveAttribute("href", "/contact");
   });
 
   // ── Hamburger button ───────────────────────────────────────────────────────
