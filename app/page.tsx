@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Monitor, Smartphone, Cloud, Lightbulb, ArrowRight, Check,
-  GitCommitHorizontal, Star, Image as ImageIcon, Users,
+  GitCommitHorizontal, Users, Rocket, Layers, Server, ClipboardCheck,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -30,10 +30,11 @@ const points = [
   "You own the code, the infrastructure and the roadmap.",
 ];
 
-const testimonials = [
-  { quote: "Aurevian rebuilt our platform in four months and it has not missed a beat since. The most senior team we have worked with.", name: "Maya Patel", role: "CTO, Northwind" },
-  { quote: "They took full ownership of our infrastructure migration. Clear communication the whole way — no jargon, no surprises.", name: "Daniel Sørensen", role: "Founder, Loftwork" },
-  { quote: "From first commit to production in record time, and the code is genuinely a pleasure to maintain. Quality over speed, as promised.", name: "Élise Moreau", role: "VP Eng, Cadence" },
+const engagements = [
+  { icon: <Rocket size={26} strokeWidth={1.75} />, title: "MVP build", desc: "Take your idea from zero to a launched, working product — scoped tight and shipped fast." },
+  { icon: <Layers size={26} strokeWidth={1.75} />, title: "Platform rebuild", desc: "Replace an ageing or fragile codebase with a modern, maintainable platform — without halting the business." },
+  { icon: <Server size={26} strokeWidth={1.75} />, title: "Infrastructure & migration", desc: "Move to the cloud, harden your systems and set up CI/CD for reliable, scalable infrastructure." },
+  { icon: <ClipboardCheck size={26} strokeWidth={1.75} />, title: "Audit & advisory", desc: "Architecture reviews, code audits and fractional tech-lead support to steer your team." },
 ];
 
 const stats = [
@@ -183,24 +184,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="scroll-mt-24 bg-canvas">
+      {/* What we can build */}
+      <section id="work" className="scroll-mt-24 bg-canvas">
         <div className="max-w-container mx-auto px-6 py-[88px]">
-          <SectionHeading align="center" maxWidth={560} eyebrow="Client stories" title="What our clients say." lead="A few words from the teams we have built with." className="mx-auto" />
-          <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
-            {testimonials.map((q) => (
-              <Card key={q.name} variant="sage" padding="p-8" className="h-full flex flex-col">
-                <div className="flex gap-[3px] text-primary mb-4">
-                  {[0, 1, 2, 3, 4].map((n) => <Star key={n} size={18} strokeWidth={1.5} fill="currentColor" />)}
+          <SectionHeading align="center" maxWidth={580} eyebrow="How we can help" title="What we can build." lead="From a first MVP to a full platform rebuild — the kinds of engagements we take on." className="mx-auto" />
+          <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
+            {engagements.map((e) => (
+              <Card key={e.title} variant="sage" padding="p-8" className="h-full">
+                <div className="w-14 h-14 flex items-center justify-center bg-primary-pale text-ink-deep rounded-lg mb-5">
+                  {e.icon}
                 </div>
-                <p className="m-0 text-[17px] leading-[27px] text-ink flex-1 text-pretty">&ldquo;{q.quote}&rdquo;</p>
-                <div className="flex items-center gap-3 mt-6">
-                  <ImagePlaceholder height={44} shape="circle" icon={<ImageIcon size={18} strokeWidth={1.5} />} className="!w-11 shrink-0" />
-                  <div>
-                    <div className="text-[15px] font-bold text-ink">{q.name}</div>
-                    <div className="text-[13px] text-body">{q.role}</div>
-                  </div>
-                </div>
+                <h3 className="m-0 text-xl font-bold text-ink">{e.title}</h3>
+                <p className="mt-2.5 text-base leading-6 text-body text-pretty">{e.desc}</p>
               </Card>
             ))}
           </div>

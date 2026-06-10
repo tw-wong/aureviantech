@@ -7,7 +7,7 @@ describe("HomePage in-page anchors", () => {
     expect(container.querySelector("#services")).toBeInTheDocument();
     expect(container.querySelector("#how-we-work")).toBeInTheDocument();
     expect(container.querySelector("#studio")).toBeInTheDocument();
-    expect(container.querySelector("#testimonials")).toBeInTheDocument();
+    expect(container.querySelector("#work")).toBeInTheDocument();
   });
 
   it("links the hero 'Learn More' to the services section", () => {
