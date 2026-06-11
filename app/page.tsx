@@ -2,13 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Monitor, Smartphone, Cloud, Lightbulb, ArrowRight, Check,
-  GitCommitHorizontal, Users, Rocket, Layers, Server, ClipboardCheck,
+  GitCommitHorizontal, Rocket, Layers, Server, ClipboardCheck,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import ServiceCard from "@/components/ServiceCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import ScrollOnArrival from "@/components/ScrollOnArrival";
 
 const services = [
@@ -166,7 +165,13 @@ export default function HomePage() {
       <section id="studio" className="scroll-mt-24 bg-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-2">
           <div className="relative">
-            <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Agency / team" />
+            <Image
+              src="/studio.webp"
+              alt="Aurevian studio — building software end to end"
+              width={1000}
+              height={1127}
+              className="w-full h-auto"
+            />
             <div className="absolute -right-4 -top-4 bg-primary text-on-primary rounded-lg px-[22px] py-[18px] shadow-soft text-center">
               <div className="font-display font-extrabold text-[26px] leading-none">10+</div>
               <div className="text-xs font-semibold mt-1">Years of<br />shipping</div>
