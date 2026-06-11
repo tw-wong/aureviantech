@@ -130,40 +130,48 @@ export default function HomePage() {
       <section id="how-we-work" className="scroll-mt-24 bg-ink text-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div className="order-2 lg:order-1">
-            <div className="relative w-full h-[440px] overflow-hidden rounded-xl">
-              <Image
-                src="/how-we-work.webp"
-                alt="Aurevian's engineering process — from discovery to launch"
-                fill
-                sizes="(max-width: 1024px) 100vw, 600px"
-                className="object-contain"
-              />
-            </div>
+            <Reveal>
+              <div className="relative w-full h-[440px] overflow-hidden rounded-xl">
+                <Image
+                  src="/how-we-work.webp"
+                  alt="Aurevian's engineering process — from discovery to launch"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-contain"
+                />
+              </div>
+            </Reveal>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
-              <span className="w-[18px] h-0.5 rounded-sm bg-primary" />
-              How we work
-            </div>
-            <h2 className="mt-4 mb-8 font-display font-extrabold leading-[1.06] tracking-[-0.5px] text-canvas-soft text-[clamp(30px,4vw,42px)]">
-              Four steps, no surprises.
-            </h2>
+            <Reveal>
+              <div className="inline-flex items-center gap-2 whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
+                <span className="w-[18px] h-0.5 rounded-sm bg-primary" />
+                How we work
+              </div>
+              <h2 className="mt-4 mb-8 font-display font-extrabold leading-[1.06] tracking-[-0.5px] text-canvas-soft text-[clamp(30px,4vw,42px)]">
+                Four steps, no surprises.
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-1">
-              {steps.map((s) => (
-                <div key={s.n} className="flex gap-[18px] py-[18px] border-b border-white/10">
-                  <div className="shrink-0 w-11 h-11 flex items-center justify-center bg-primary text-on-primary rounded-pill font-display font-extrabold text-base">
-                    {s.n}
+              {steps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 100}>
+                  <div className="flex gap-[18px] py-[18px] border-b border-white/10">
+                    <div className="shrink-0 w-11 h-11 flex items-center justify-center bg-primary text-on-primary rounded-pill font-display font-extrabold text-base">
+                      {s.n}
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-canvas-soft">{s.title}</div>
+                      <div className="mt-1 text-[15px] leading-[22px] text-mute">{s.desc}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-lg font-bold text-canvas-soft">{s.title}</div>
-                    <div className="mt-1 text-[15px] leading-[22px] text-mute">{s.desc}</div>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
-            <div className="mt-8">
-              <Link href="/contact"><Button>Work with us</Button></Link>
-            </div>
+            <Reveal delay={steps.length * 100}>
+              <div className="mt-8">
+                <Link href="/contact"><Button>Work with us</Button></Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
