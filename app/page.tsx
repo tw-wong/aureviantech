@@ -9,6 +9,7 @@ import Card from "@/components/ui/Card";
 import ServiceCard from "@/components/ServiceCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollOnArrival from "@/components/ScrollOnArrival";
+import Reveal from "@/components/Reveal";
 
 const services = [
   { icon: <Monitor size={30} strokeWidth={1.5} />, title: "Web Development", description: "Full-stack web apps built with modern frameworks — from landing pages to complex SaaS products." },
@@ -105,17 +106,23 @@ export default function HomePage() {
       {/* Services */}
       <section id="services" className="scroll-mt-24 bg-canvas">
         <div className="max-w-container mx-auto px-6 py-[88px]">
-          <SectionHeading align="center" maxWidth={620} eyebrow="What we do" title="The services we provide." lead="Everything you need to build, launch and scale your digital product — under one senior team." className="mx-auto" />
+          <Reveal>
+            <SectionHeading align="center" maxWidth={620} eyebrow="What we do" title="The services we provide." lead="Everything you need to build, launch and scale your digital product — under one senior team." className="mx-auto" />
+          </Reveal>
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
-            {services.map((s) => (
-              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} />
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 120} className="h-full">
+                <ServiceCard icon={s.icon} title={s.title} description={s.description} />
+              </Reveal>
             ))}
           </div>
-          <div className="mt-10">
-            <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-              Start a project <ArrowRight size={17} strokeWidth={2.25} />
-            </Link>
-          </div>
+          <Reveal delay={services.length * 120}>
+            <div className="mt-10">
+              <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+                Start a project <ArrowRight size={17} strokeWidth={2.25} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
