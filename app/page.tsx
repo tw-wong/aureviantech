@@ -124,7 +124,15 @@ export default function HomePage() {
       <section id="how-we-work" className="scroll-mt-24 bg-ink text-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div className="order-2 lg:order-1">
-            <ImagePlaceholder height={440} icon={<Monitor size={48} strokeWidth={1.25} />} label="Working / process" />
+            <div className="relative w-full h-[440px] overflow-hidden rounded-xl">
+              <Image
+                src="/how-we-work.webp"
+                alt="Aurevian's engineering process — from discovery to launch"
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-contain"
+              />
+            </div>
           </div>
           <div className="order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
