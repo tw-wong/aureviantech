@@ -169,7 +169,7 @@ export default function HomePage() {
               src="/studio.webp"
               alt="Aurevian studio — building software end to end"
               width={1000}
-              height={1127}
+              height={1121}
               className="w-full h-auto"
             />
             <div className="absolute -right-4 -top-4 bg-primary text-on-primary rounded-lg px-[22px] py-[18px] shadow-soft text-center">
