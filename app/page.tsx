@@ -179,7 +179,7 @@ export default function HomePage() {
       {/* About the studio */}
       <section id="studio" className="scroll-mt-24 bg-canvas-soft">
         <div className="max-w-container mx-auto px-6 py-[88px] grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative">
+          <Reveal className="relative">
             <Image
               src="/studio.webp"
               alt="Aurevian studio — building software end to end"
@@ -191,25 +191,31 @@ export default function HomePage() {
               <div className="font-display font-extrabold text-[26px] leading-none">10+</div>
               <div className="text-xs font-semibold mt-1">Years of<br />shipping</div>
             </div>
-          </div>
+          </Reveal>
           <div>
-            <SectionHeading eyebrow="About the studio" title="A senior team that ships things that last." />
-            <p className="mt-5 text-[17px] leading-[27px] text-body text-pretty">
-              We partner with startups and established companies to deliver the web apps, mobile apps and infrastructure that power them — taking full ownership from the first commit to production.
-            </p>
+            <Reveal>
+              <SectionHeading eyebrow="About the studio" title="A senior team that ships things that last." />
+              <p className="mt-5 text-[17px] leading-[27px] text-body text-pretty">
+                We partner with startups and established companies to deliver the web apps, mobile apps and infrastructure that power them — taking full ownership from the first commit to production.
+              </p>
+            </Reveal>
             <div className="flex flex-col gap-3 my-[26px]">
-              {points.map((p) => (
-                <div key={p} className="flex gap-3 items-start">
-                  <span className="shrink-0 w-6 h-6 flex items-center justify-center bg-primary text-on-primary rounded-pill mt-px">
-                    <Check size={15} strokeWidth={3} />
-                  </span>
-                  <span className="text-base leading-6 text-ink">{p}</span>
-                </div>
+              {points.map((p, i) => (
+                <Reveal key={p} delay={i * 100}>
+                  <div className="flex gap-3 items-start">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center bg-primary text-on-primary rounded-pill mt-px">
+                      <Check size={15} strokeWidth={3} />
+                    </span>
+                    <span className="text-base leading-6 text-ink">{p}</span>
+                  </div>
+                </Reveal>
               ))}
             </div>
-            <Link href="/about" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-              Meet the team <ArrowRight size={17} strokeWidth={2.25} />
-            </Link>
+            <Reveal delay={points.length * 100}>
+              <Link href="/about" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+                Meet the team <ArrowRight size={17} strokeWidth={2.25} />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -217,36 +223,44 @@ export default function HomePage() {
       {/* What we can build */}
       <section id="work" className="scroll-mt-24 bg-canvas">
         <div className="max-w-container mx-auto px-6 py-[88px]">
-          <SectionHeading align="center" maxWidth={580} eyebrow="How we can help" title="What we can build." lead="From a first MVP to a full platform rebuild — the kinds of engagements we take on." className="mx-auto" />
+          <Reveal>
+            <SectionHeading align="center" maxWidth={580} eyebrow="How we can help" title="What we can build." lead="From a first MVP to a full platform rebuild — the kinds of engagements we take on." className="mx-auto" />
+          </Reveal>
           <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
-            {engagements.map((e) => (
-              <Card key={e.title} variant="sage" padding="p-8" className="h-full">
-                <div className="w-14 h-14 flex items-center justify-center bg-primary-pale text-ink-deep rounded-lg mb-5">
-                  {e.icon}
-                </div>
-                <h3 className="m-0 text-xl font-bold text-ink">{e.title}</h3>
-                <p className="mt-2.5 text-base leading-6 text-body text-pretty">{e.desc}</p>
-              </Card>
+            {engagements.map((e, i) => (
+              <Reveal key={e.title} delay={i * 120} className="h-full">
+                <Card variant="sage" padding="p-8" className="h-full">
+                  <div className="w-14 h-14 flex items-center justify-center bg-primary-pale text-ink-deep rounded-lg mb-5">
+                    {e.icon}
+                  </div>
+                  <h3 className="m-0 text-xl font-bold text-ink">{e.title}</h3>
+                  <p className="mt-2.5 text-base leading-6 text-body text-pretty">{e.desc}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-10">
-            <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
-              Start a project <ArrowRight size={17} strokeWidth={2.25} />
-            </Link>
-          </div>
+          <Reveal delay={engagements.length * 120}>
+            <div className="mt-10">
+              <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+                Start a project <ArrowRight size={17} strokeWidth={2.25} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="bg-ink">
         <div className="max-w-text mx-auto px-6 py-[88px] text-center">
-          <h2 className="m-0 font-display font-extrabold leading-[1.04] tracking-[-0.5px] text-primary text-[clamp(32px,5vw,52px)]">
-            Ready to build something?
-          </h2>
-          <p className="mx-auto mt-[18px] mb-8 text-[19px] leading-[29px] text-canvas-soft max-w-[480px]">
-            Tell us about your project and we&rsquo;ll get back to you within 24 hours.
-          </p>
-          <Link href="/contact"><Button>Contact Us</Button></Link>
+          <Reveal>
+            <h2 className="m-0 font-display font-extrabold leading-[1.04] tracking-[-0.5px] text-primary text-[clamp(32px,5vw,52px)]">
+              Ready to build something?
+            </h2>
+            <p className="mx-auto mt-[18px] mb-8 text-[19px] leading-[29px] text-canvas-soft max-w-[480px]">
+              Tell us about your project and we&rsquo;ll get back to you within 24 hours.
+            </p>
+            <Link href="/contact"><Button>Contact Us</Button></Link>
+          </Reveal>
         </div>
       </section>
     </>
