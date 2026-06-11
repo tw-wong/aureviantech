@@ -51,7 +51,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-canvas-soft relative overflow-hidden">
         <div className="max-w-container mx-auto px-6 pt-[72px] pb-20 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
-          <div>
+          <Reveal>
             <span className="inline-flex items-center gap-2 bg-primary-pale text-positive-deep text-sm font-semibold px-3.5 py-[5px] rounded-pill mb-6">
               <span className="relative inline-flex w-2 h-2">
                 <span className="absolute inset-0 rounded-full bg-positive motion-safe:animate-status-ping" />
@@ -77,9 +77,9 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative">
+          <Reveal className="relative" delay={150}>
             <div className="relative w-full h-[460px] overflow-hidden rounded-xl">
               <Image
                 src="/hero.webp"
@@ -99,7 +99,7 @@ export default function HomePage() {
                 <div className="text-[13px] text-body">Idea to production</div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
