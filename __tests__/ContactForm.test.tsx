@@ -25,6 +25,22 @@ describe("ContactForm", () => {
     expect(screen.getByLabelText(/name/i)).toHaveValue("Alice");
   });
 
+  it("submits to the Formspree endpoint", async () => {
+    (global.fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await user.type(screen.getByLabelText(/name/i), "Alice");
+    await user.type(screen.getByLabelText(/email/i), "alice@example.com");
+    await user.type(screen.getByLabelText(/message/i), "Hello!");
+    await user.click(screen.getByRole("button", { name: /send/i }));
+    await waitFor(() =>
+      expect(global.fetch).toHaveBeenCalledWith(
+        "https://formspree.io/f/mgonkwvy",
+        expect.objectContaining({ method: "POST" })
+      )
+    );
+  });
+
   it("shows success message on successful submission", async () => {
     (global.fetch as jest.Mock).mockResolvedValueOnce({ ok: true });
     const user = userEvent.setup();

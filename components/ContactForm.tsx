@@ -6,7 +6,9 @@ import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Button from "@/components/ui/Button";
 
-const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "";
+// Public form endpoint — ships in the client bundle by design.
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "https://formspree.io/f/mgonkwvy";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type Errors = { name?: string; email?: string; message?: string };
