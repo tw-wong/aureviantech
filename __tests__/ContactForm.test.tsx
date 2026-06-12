@@ -50,4 +50,25 @@ describe("ContactForm", () => {
       expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
     );
   });
+
+  it("shows inline errors and does not submit when fields are empty", async () => {
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await user.click(screen.getByRole("button", { name: /send/i }));
+    expect(screen.getByText(/please enter your name/i)).toBeInTheDocument();
+    expect(screen.getByText(/enter a valid email/i)).toBeInTheDocument();
+    expect(screen.getByText(/tell us a little about your project/i)).toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it("shows an email error for an invalid email", async () => {
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await user.type(screen.getByLabelText(/name/i), "Alice");
+    await user.type(screen.getByLabelText(/email/i), "not-an-email");
+    await user.type(screen.getByLabelText(/message/i), "Hello there");
+    await user.click(screen.getByRole("button", { name: /send/i }));
+    expect(screen.getByText(/enter a valid email/i)).toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
 });

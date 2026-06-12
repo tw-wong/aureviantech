@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ServiceCard from "@/components/ServiceCard";
 
 const props = {
-  icon: "🌐",
+  icon: <span data-testid="icn" />,
   title: "Web Development",
   description: "We build fast, scalable web applications.",
 };
@@ -18,8 +18,8 @@ describe("ServiceCard", () => {
     expect(screen.getByText("We build fast, scalable web applications.")).toBeInTheDocument();
   });
 
-  it("renders the icon", () => {
+  it("renders the icon node", () => {
     render(<ServiceCard {...props} />);
-    expect(screen.getByText("🌐")).toBeInTheDocument();
+    expect(screen.getByTestId("icn")).toBeInTheDocument();
   });
 });

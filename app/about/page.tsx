@@ -1,35 +1,128 @@
+import Link from "next/link";
+import Image from "next/image";
+import { Gem, MessagesSquare, GitCommitHorizontal, Code2, Smartphone, Server, Compass } from "lucide-react";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+import SectionHeading from "@/components/ui/SectionHeading";
+import ScrollLink from "@/components/ScrollLink";
+import Reveal from "@/components/Reveal";
+
+const values = [
+  { icon: <Gem size={26} strokeWidth={2} />, title: "Quality over speed", desc: "We ship things that work and last — not things that need rewriting in six months." },
+  { icon: <MessagesSquare size={26} strokeWidth={2} />, title: "Clear communication", desc: "No jargon, no surprises. You always know what we are building and why." },
+  { icon: <GitCommitHorizontal size={26} strokeWidth={2} />, title: "End-to-end ownership", desc: "We take responsibility from the first commit to production deployment." },
+];
+
+const disciplines = [
+  { icon: <Code2 size={26} strokeWidth={1.75} />, title: "Engineering", desc: "Principal-level engineers leading architecture and delivery." },
+  { icon: <Smartphone size={26} strokeWidth={1.75} />, title: "Mobile", desc: "Native and cross-platform apps for iOS and Android." },
+  { icon: <Server size={26} strokeWidth={1.75} />, title: "Infrastructure", desc: "Cloud, DevOps and CI/CD for reliable, scalable systems." },
+  { icon: <Compass size={26} strokeWidth={1.75} />, title: "Product", desc: "Product engineering that keeps scope tight and outcomes clear." },
+];
+
+const capabilities = ["React", "Next.js", "Node.js", "Go", "Python", "Swift", "Kotlin", "MongoDB", "AWS", "Serverless", "Terraform", "CI/CD"];
+
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20">
+    <>
       {/* Intro */}
-      <section className="mb-16">
-        <h1 className="text-4xl font-bold text-slate-900 mb-6">About Us</h1>
-        <p className="text-lg text-slate-500 leading-relaxed">
-          We are a small, senior engineering team passionate about building digital products
-          that work. We partner with startups and established companies to deliver web
-          applications, mobile apps, and the infrastructure that powers them.
-        </p>
+      <section className="bg-canvas-soft">
+        <div className="max-w-container mx-auto px-6 py-20 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <Reveal>
+            <SectionHeading eyebrow="About us" title="A small, senior team that builds things that last." titleSize={54} />
+            <p className="mt-6 text-[19px] leading-[29px] text-body max-w-[520px] text-pretty">
+              We partner with startups and established companies to deliver web applications, mobile apps and the infrastructure that powers them — taking full ownership from first commit to production deployment.
+            </p>
+            <div className="flex gap-3 mt-[30px] flex-wrap">
+              <Link href="/contact"><Button>Work with us</Button></Link>
+              <ScrollLink targetId="services"><Button variant="tertiary">Our services</Button></ScrollLink>
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <div className="relative w-full h-[420px] overflow-hidden rounded-xl">
+              <Image
+                src="/about.webp"
+                alt="A senior team connecting ideas across web, mobile and infrastructure"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-contain"
+              />
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* Values */}
-      <section>
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">Our Values</h2>
-        <ul className="space-y-4">
-          {[
-            { title: "Quality over speed", desc: "We ship things that work and last, not things that need rewriting in six months." },
-            { title: "Clear communication", desc: "No jargon, no surprises. You always know what we're building and why." },
-            { title: "End-to-end ownership", desc: "We take responsibility from first commit to production deployment." },
-          ].map((item) => (
-            <li key={item.title} className="flex gap-4 bg-white border border-light-300 rounded-lg p-6">
-              <span className="text-sky-600 font-bold mt-0.5">→</span>
-              <div>
-                <h3 className="text-slate-900 font-semibold mb-1">{item.title}</h3>
-                <p className="text-slate-500 text-sm">{item.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <section className="bg-canvas">
+        <div className="max-w-container mx-auto px-6 py-[88px]">
+          <Reveal>
+            <SectionHeading eyebrow="How we operate" title="Our values." />
+          </Reveal>
+          <div className="grid gap-6 mt-11 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]">
+            {values.map((v, i) => (
+              <Reveal key={v.title} delay={i * 120} className="h-full">
+                <Card variant="sage" padding="p-8" className="h-full">
+                  <div className="w-[52px] h-[52px] flex items-center justify-center bg-primary text-on-primary rounded-lg mb-5">
+                    {v.icon}
+                  </div>
+                  <h3 className="m-0 text-xl font-bold text-ink">{v.title}</h3>
+                  <p className="mt-2.5 text-base leading-6 text-body text-pretty">{v.desc}</p>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
-    </div>
+
+      {/* The team */}
+      <section className="bg-canvas-soft">
+        <div className="max-w-container mx-auto px-6 py-[88px]">
+          <Reveal>
+            <SectionHeading align="center" maxWidth={560} eyebrow="The team" title="One team, every discipline." lead="Direct access to the people who design, build and ship — across web, mobile, infrastructure and product." className="mx-auto" />
+          </Reveal>
+          <div className="grid gap-6 mt-12 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+            {disciplines.map((d, i) => (
+              <Reveal key={d.title} delay={i * 120} className="h-full">
+                <Card variant="content" padding="p-6" className="text-center h-full">
+                  <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-primary-pale text-ink-deep rounded-lg">
+                    {d.icon}
+                  </div>
+                  <div className="text-[17px] font-bold text-ink">{d.title}</div>
+                  <div className="text-sm leading-5 text-body mt-1.5 text-pretty">{d.desc}</div>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The stack */}
+      <section className="bg-ink">
+        <div className="max-w-text mx-auto px-6 py-20 text-center">
+          <Reveal>
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-2 whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.12em] text-primary">
+                <span className="w-[18px] h-0.5 rounded-sm bg-primary" />
+                The stack
+              </div>
+            </div>
+            <h2 className="mt-4 mb-3 font-display font-extrabold leading-[1.1] tracking-[-0.4px] text-canvas-soft text-[clamp(28px,4vw,38px)]">
+              The tools we reach for.
+            </h2>
+            <p className="mx-auto mb-7 text-base text-mute max-w-[460px]">
+              A pragmatic, modern stack — chosen per project, never by default.
+            </p>
+            <div className="flex flex-wrap gap-2.5 justify-center">
+              {capabilities.map((c) => (
+                <span key={c} className="text-[15px] font-semibold text-canvas-soft bg-white/[0.08] border border-white/[0.16] px-4 py-[7px] rounded-pill">
+                  {c}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }
