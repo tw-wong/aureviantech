@@ -2,6 +2,7 @@ import { Clock, MapPin } from "lucide-react";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 
 const details = [
   { icon: <Clock size={20} strokeWidth={2} />, label: "Response time", value: "Within 24 hours" },
@@ -13,7 +14,7 @@ export default function ContactPage() {
     <div className="bg-canvas-soft">
       <div className="max-w-container mx-auto px-6 py-20 grid items-start gap-12 lg:grid-cols-[1fr_1.05fr]">
         {/* Info */}
-        <div>
+        <Reveal>
           <SectionHeading eyebrow="Contact" title="Let us build it together." titleSize={50} />
           <p className="mt-[22px] mb-8 text-lg leading-7 text-body max-w-[400px] text-pretty">
             Have a project in mind? We would love to hear about it — send us a message.
@@ -32,12 +33,14 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Form */}
-        <Card variant="content" padding="p-8" lifted>
-          <ContactForm />
-        </Card>
+        <Reveal delay={150}>
+          <Card variant="content" padding="p-8" lifted>
+            <ContactForm />
+          </Card>
+        </Reveal>
       </div>
     </div>
   );
