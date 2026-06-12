@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Gem, MessagesSquare, GitCommitHorizontal, Users, Code2, Smartphone, Server, Compass } from "lucide-react";
+import Image from "next/image";
+import { Gem, MessagesSquare, GitCommitHorizontal, Code2, Smartphone, Server, Compass } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import ScrollLink from "@/components/ScrollLink";
 import Reveal from "@/components/Reveal";
 
@@ -39,7 +39,16 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <ImagePlaceholder height={420} icon={<Users size={48} strokeWidth={1.25} />} label="Team" />
+            <div className="relative w-full h-[420px] overflow-hidden rounded-xl">
+              <Image
+                src="/about.webp"
+                alt="A senior team connecting ideas across web, mobile and infrastructure"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-contain"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
