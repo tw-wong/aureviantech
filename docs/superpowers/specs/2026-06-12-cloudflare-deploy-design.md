@@ -15,6 +15,10 @@ The site is a Next.js static export (`output: "export"`), built with
 GitHub Actions workflows today. The repo secrets `CLOUDFLARE_API_TOKEN` and
 `CLOUDFLARE_ACCOUNT_ID` already exist.
 
+The Cloudflare account already has a Worker named `solitary-hall-c4e1` with
+the `aureviantech.com` custom domain (+1 other route) attached. Deploys must
+target this existing Worker so the live domain picks up each release.
+
 ## Decision
 
 Deploy as a **Cloudflare Worker with Static Assets** (assets-only, no Worker
@@ -27,17 +31,19 @@ because new platform investment is going to Workers.
 ### 1. `wrangler.toml` (repo root)
 
 ```toml
-name = "aureviantech"
+name = "solitary-hall-c4e1"
 compatibility_date = "2026-06-12"
 
 [assets]
 directory = "./out"
 ```
 
+- `name` matches the existing Worker, so each deploy publishes a new version
+  of `solitary-hall-c4e1` and the attached `aureviantech.com` domain serves
+  it immediately.
 - No `main` entry: the Worker serves the static `out/` directory directly.
-- The first deploy creates the Worker `aureviantech` in the Cloudflare
-  account; it is reachable at `aureviantech.<account-subdomain>.workers.dev`
-  until a custom domain is attached.
+- No `routes` in the config: the domain/route bindings managed in the
+  Cloudflare dashboard stay as they are.
 
 ### 2. `.github/workflows/deploy.yml`
 
@@ -61,8 +67,8 @@ visible in the GitHub Actions tab (and GitHub's default email notifications).
 ## Testing
 
 - CI-side: the workflow itself runs jest before deploying.
-- Acceptance: after merging this branch to `main`, the workflow runs and the
-  site is reachable at the `workers.dev` URL with the current design.
+- Acceptance: after merging this branch to `main`, the workflow runs and
+  `aureviantech.com` serves the current design.
 - Local validation before merge: `npx wrangler deploy --dry-run` to confirm
   the config parses and the asset directory resolves (requires a local build).
 
