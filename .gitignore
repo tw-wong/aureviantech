@@ -47,3 +47,6 @@ next-env.d.ts
 .superpowers/
 .claude/
 .serena/
+
+# wrangler local state
+.wrangler/
