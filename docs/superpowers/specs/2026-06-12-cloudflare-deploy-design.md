@@ -36,6 +36,7 @@ compatibility_date = "2026-06-12"
 
 [assets]
 directory = "./out"
+not_found_handling = "404-page"
 ```
 
 - `name` matches the existing Worker, so each deploy publishes a new version
@@ -44,11 +45,17 @@ directory = "./out"
 - No `main` entry: the Worker serves the static `out/` directory directly.
 - No `routes` in the config: the domain/route bindings managed in the
   Cloudflare dashboard stay as they are.
+- `not_found_handling = "404-page"` serves the exported `out/404.html` for
+  unknown URLs instead of a blank 404.
+- `.wrangler/` (local wrangler state from dry-runs) is gitignored.
 
 ### 2. `.github/workflows/deploy.yml`
 
 - **Trigger:** `push` to `main` only. Merging a PR produces a push to `main`,
   so merges deploy automatically. No deploys from PRs or other branches.
+- **Hardening:** `permissions: contents: read` (least privilege) and a
+  `concurrency` group (`deploy-main`, cancel-in-progress) so rapid merges
+  can't race — newest push wins.
 - **Job steps (ubuntu-latest):**
   1. `actions/checkout@v4`
   2. `actions/setup-node@v4` — Node 22, npm cache (repo requires Node ≥ 18.18)

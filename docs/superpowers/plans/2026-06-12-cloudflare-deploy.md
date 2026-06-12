@@ -39,7 +39,11 @@ compatibility_date = "2026-06-12"
 
 [assets]
 directory = "./out"
+not_found_handling = "404-page"
 ```
+
+`not_found_handling` serves the exported `out/404.html` for unknown URLs.
+Also gitignore `.wrangler/` (local state created by wrangler dry-runs).
 
 `name` MUST be `solitary-hall-c4e1` (the existing Worker with the
 aureviantech.com domain attached). A different name would create a new,
@@ -80,6 +84,13 @@ name: Deploy to Cloudflare
 on:
   push:
     branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
 
 jobs:
   deploy:
